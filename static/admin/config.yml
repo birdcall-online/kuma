@@ -227,7 +227,7 @@ collections:
             required: true
 
   - name: exkuma-workshops
-    label: EXKUMA Workshops
+    label: EX-KUMA Workshops
     folder: /content/workshops
     create: true
     media_folder: "{{media_folder}}/workshops/{{slug}}"
