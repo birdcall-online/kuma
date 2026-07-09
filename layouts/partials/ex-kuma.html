@@ -11,16 +11,18 @@
             <a><span class="lang-button ex-kuma">EN</span></a>
         </nav>
     </header>
+
+    {{ $sticker := site.GetPage "/exkuma-sticker" }}
+
+    {{ if $sticker.Params.ko.description }}
     <div class="sticker" id="sticker">
-		<div id="kuma-modal">
-			<p><span class="ml-en">
-				UNSETTLED<br>
-				INTERNATIONAL<br>
-				WORKSHOP<br>
-				PROGRAMME OF KUMA
-			</span></p>
-		</div>
-	</div>
+        <div id="kuma-modal">
+            <p>{{ $sticker.Params.ko.title }}</p>
+            <p>{{ $sticker.Params.ko.description | safeHTML }}</p>
+        </div>
+    </div>
+    {{ end }}
+
     <section>
         <div class="about-container" id="exkuma-about">
             {{ $about := site.GetPage "/exkuma-about" }}
