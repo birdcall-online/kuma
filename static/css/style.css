@@ -763,6 +763,11 @@ details[open] > summary {
     height: 76px;
 }
 
+main .container.ex-kuma .clock {
+    transform: translateY(-50%);
+    visibility: hidden;
+}
+
 main .container.kuma .clock.clock-left {
     left: 25%;
     top: 50%;

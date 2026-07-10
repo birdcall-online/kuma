@@ -1,14 +1,3 @@
-// close sticker
-document.addEventListener("DOMContentLoaded", () => {
-  const sticker = document.querySelector(".sticker");
-
-  if (sticker) {
-    sticker.addEventListener("click", () => {
-      sticker.style.display = "none";
-    });
-  }
-});
-
 const setLanguage = (lang, button, container, type) => {
   container.dataset.language = lang;
   localStorage.setItem(`${type}-language`, lang);
@@ -37,9 +26,10 @@ const setClock = (clockId, date) => {
   hourHand.style.transform = `translateX(-50%) rotate(${hourDeg}deg)`;
   minuteHand.style.transform = `translateX(-50%) rotate(${minuteDeg}deg)`;
   secondHand.style.transform = `translateX(-50%) rotate(${secondDeg}deg)`;
-}
+  clock.style.visibility = "visible";
+};
 
-const  updateClocks = () => {
+const updateClocks = () => {
   const now = new Date();
 
   // 방문자(클라이언트) 로컬 시간
@@ -49,10 +39,10 @@ const  updateClocks = () => {
   const koreaNow = new Date(
     now.toLocaleString("en-US", {
       timeZone: "Asia/Seoul",
-    })
+    }),
   );
   setClock("korea-clock", koreaNow);
-}
+};
 
 const randomizeClockPosition = () => {
   const clock = document.getElementById("local-clock");
@@ -82,13 +72,21 @@ const randomizeClockPosition = () => {
 
 let resizeTimer;
 
+window.addEventListener("resize", () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(randomizeClockPosition, 200);
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   randomizeClockPosition();
   updateClocks();
   setInterval(updateClocks, 1000);
-});
 
-window.addEventListener("resize", () => {
-  clearTimeout(resizeTimer);
-  resizeTimer = setTimeout(randomizeClockPosition, 200);
+  const sticker = document.querySelector(".sticker");
+
+  if (sticker) {
+    sticker.addEventListener("click", () => {
+      sticker.style.display = "none";
+    });
+  }
 });
