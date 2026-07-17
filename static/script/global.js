@@ -105,4 +105,6 @@ document.addEventListener("DOMContentLoaded", () => {
       sticker.style.display = "none";
     });
   }
+
+
 });

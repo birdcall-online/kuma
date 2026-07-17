@@ -114,6 +114,10 @@
     display: none;
 }
 
+html {
+      scroll-behavior: smooth;
+}
+
 html,
 body {
     width: 100%;
