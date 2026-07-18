@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: EX-KUMA/kuma
+  repo: birdcall-online/kuma
   branch: main
   base_url: https://sveltia-cms-auth.birdcall-xyz.workers.dev
 
