@@ -853,7 +853,7 @@ main .exhibitions-item {
 }
 
 .upcoming-item > .bottom > .left {
-    padding: 18px;
+    padding: var(--section-gap);
 }
 
 .upcoming-item > .bottom > .left {
